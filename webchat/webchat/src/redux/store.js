@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import cartSlice from './cartSlice';
+import messageChat from './messageChat';
 
 export const store = configureStore({
     reducer: {
-        cart: cartSlice
+        chat: messageChat
     }
 })
