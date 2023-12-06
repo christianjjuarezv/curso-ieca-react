@@ -3,11 +3,11 @@ import { useWebChat } from "../../hooks/useWebChat";
 import MessageItem from "../../components/MessageItem";
 
 const Chat = () => {
-  const { data: webchat, loading, error, getMessage } = useWebChat();
+  const { data: webchat, loading, error, getMessages } = useWebChat();
 
   useEffect(() => {
     const get = async () => {
-      const unsubscribe = await getMessage();
+      const unsubscribe = await getMessages();
       return () => {
         if (typeof unsubscribe === "function") {
           unsubscribe();
