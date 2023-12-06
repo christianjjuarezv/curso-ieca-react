@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
-const messageChat = createSlice({
+const chatSlice = createSlice({
     name: 'chat',
     initialState,
     reducers: {
@@ -15,6 +15,6 @@ const messageChat = createSlice({
     }
 });
 
-export const { addToChat, removeFromChat } = messageChat.actions;
+export const { addToChat, removeFromChat } = chatSlice.actions;
 
-export default messageChat.reducer;
+export default chatSlice.reducer;

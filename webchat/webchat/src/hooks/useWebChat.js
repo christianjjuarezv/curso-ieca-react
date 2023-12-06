@@ -23,7 +23,7 @@ import {
   
         return onSnapshot(res, (querySnapshot) => {
           setData(
-            querySnapshot.docs.map((doc) => ({ id: doc.id,usuario: doc.usuario,mensaje: doc.mensaje, ...doc.data() }))
+            querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
           );
         });
       } catch (error) {

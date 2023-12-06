@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addToChat } from "../redux/messageChat";
+import { addToChat } from "../redux/chatSlice";
 
 const MessageItem = ({webchat}) => {
     const dispatch = useDispatch();

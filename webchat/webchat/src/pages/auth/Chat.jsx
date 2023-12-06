@@ -1,4 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useWebChat } from "../../hooks/useWebChat";
+import MessageItem from "../../components/MessageItem";
+
+const Chat = () => {
+  const { data: webchat, loading, error, getMessage } = useWebChat();
+
+  useEffect(() => {
+    const get = async () => {
+      const unsubscribe = await getMessage();
+      return () => {
+        if (typeof unsubscribe === "function") {
+          unsubscribe();
+        }
+      };
+    };
+    get();
+  }, []);
+
+  return (
+    <>
+      <div className="text-black">
+      <h1 className="text-cyan-700">Bienvenido al WebChat, ya pudiste entrar.</h1>
+        {loading ? <span>Cargando...</span> : null}
+        {error ? <span>Hubo un error</span> : null}
+        {webchat ? (
+          <ul className="grid grid-cols-5 gap-4 ">
+            {webchat.map((webchat) => (
+              <MessageItem product={webchat} key={webchat.id} />
+            ))}
+          </ul>
+        ) : null}
+      </div>
+      {/* Fixed floating button */}
+      
+    </>
+  );
+};
+
+export default Chat;
+
+/*import { useEffect, useState } from "react";
 import MessageItem from "../../components/MessageItem";
 import { useSelector } from "react-redux";
 
@@ -22,4 +63,4 @@ const Chat=()=>{
 }
 
 
-export default Chat
+export default Chat*/
