@@ -26,7 +26,7 @@ const Chat = () => {
         {webchat ? (
           <ul className="grid grid-cols-5 gap-4 ">
             {webchat.map((webchat) => (
-              <MessageItem product={webchat} key={webchat.id} />
+              <MessageItem webchat={webchat} key={webchat.id} />
             ))}
           </ul>
         ) : null}
